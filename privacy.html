@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — glowy</title>
+  <meta name="description" content="Privacy Policy for the glowy app." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --peach:  #E8A87C;
+      --cream:  #FFF5EE;
+      --honey:  #C4A882;
+      --dark:   #3A3330;
+      --white:  #FFFBF7;
+      --border: rgba(232,168,124,0.2);
+      --ff:     'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+    body {
+      font-family: var(--ff);
+      background: var(--white);
+      color: var(--dark);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 48px;
+      background: rgba(255,251,247,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo svg { width: 28px; height: auto; }
+    .nav-wordmark { font-size: 18px; font-weight: 700; color: var(--dark); letter-spacing: -0.02em; }
+    .nav-back {
+      font-size: 13px;
+      color: var(--honey);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--peach); }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 72px 24px 120px;
+    }
+    .doc-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--peach);
+      margin-bottom: 14px;
+    }
+    .doc-title {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .doc-meta {
+      font-size: 14px;
+      color: var(--honey);
+      margin-bottom: 40px;
+    }
+    .doc-divider {
+      height: 2px;
+      background: linear-gradient(90deg, var(--peach), transparent);
+      border: none;
+      margin-bottom: 48px;
+      border-radius: 2px;
+    }
+    .callout {
+      background: var(--cream);
+      border-left: 3px solid var(--peach);
+      border-radius: 0 10px 10px 0;
+      padding: 16px 20px;
+      font-size: 14px;
+      color: var(--dark);
+      margin: 32px 0;
+      line-height: 1.65;
+    }
+    .callout strong { color: var(--peach); }
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: -0.01em;
+      margin: 48px 0 12px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+    }
+    h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 28px 0 8px;
+    }
+    p {
+      font-size: 15px;
+      color: var(--dark);
+      margin-bottom: 16px;
+      line-height: 1.75;
+    }
+    ul, ol {
+      margin: 0 0 20px 0;
+      padding-left: 24px;
+    }
+    li {
+      font-size: 15px;
+      color: var(--dark);
+      margin-bottom: 8px;
+      line-height: 1.65;
+    }
+    strong { color: var(--dark); }
+    .toc {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 48px;
+      border: 1px solid var(--border);
+    }
+    .toc-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--honey);
+      margin-bottom: 14px;
+    }
+    .toc ol { padding-left: 20px; margin: 0; }
+    .toc li { margin-bottom: 6px; font-size: 14px; }
+    .toc a { color: var(--peach); text-decoration: none; }
+    .toc a:hover { text-decoration: underline; }
+
+    /* Data table */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0 28px;
+      font-size: 14px;
+    }
+    .data-table th {
+      background: var(--cream);
+      color: var(--dark);
+      font-weight: 700;
+      padding: 10px 14px;
+      text-align: left;
+      border: 1px solid var(--border);
+    }
+    .data-table td {
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      color: var(--dark);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+    .data-table tr:nth-child(even) td { background: rgba(255,245,238,0.4); }
+
+    footer {
+      background: var(--dark);
+      padding: 40px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-left { font-size: 13px; color: rgba(255,251,247,0.5); }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer-links a { font-size: 13px; color: rgba(255,251,247,0.5); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--peach); }
+
+    @media (max-width: 600px) {
+      nav { padding: 14px 20px; }
+      main { padding: 48px 20px 80px; }
+      .doc-title { font-size: 30px; }
+      footer { padding: 32px 20px; }
+      .data-table { font-size: 12px; }
+      .data-table th, .data-table td { padding: 8px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#E8A87C;stop-opacity:1"/>
+          <stop offset="100%" style="stop-color:#C4A882;stop-opacity:1"/>
+        </linearGradient>
+      </defs>
+      <path d="M 30 50 Q 25 70 25 100 Q 25 130 40 140 L 80 140 Q 95 130 95 100 Q 95 70 90 50 Z" fill="url(#g1)" opacity="0.8"/>
+      <path d="M 35 55 Q 32 75 32 100 Q 32 125 40 135" stroke="#FFFBF7" stroke-width="3" fill="none" opacity="0.6"/>
+      <path d="M 60 30 Q 50 10 55 0 Q 60 15 60 30 Q 65 15 70 0 Q 75 10 65 30 Q 62 35 60 40 Z" fill="#E8A87C"/>
+      <path d="M 60 25 Q 55 15 58 5 Q 60 18 60 25 Q 63 18 65 5 Q 68 15 62 25 Z" fill="#FFF5EE"/>
+    </svg>
+    <span class="nav-wordmark">glowy</span>
+  </a>
+  <a href="/" class="nav-back">← back to myglowy.app</a>
+</nav>
+
+<main>
+  <div class="doc-eyebrow">legal</div>
+  <h1 class="doc-title">Privacy Policy</h1>
+  <div class="doc-meta">Last Updated: April 7, 2026 · myGlowy</div>
+  <hr class="doc-divider" />
+
+  <div class="callout">
+    <strong>Not affiliated with Glassybaby LLC.</strong> Glowy is an independent application created by and for the Glassybaby collector community. Glowy is not affiliated with, endorsed by, sponsored by, or officially connected to Glassybaby LLC or any of its subsidiaries or affiliates.
+  </div>
+
+  <p>Welcome to myGlowy ("Glowy," "we," "us," or "our"). This Privacy Policy explains how we collect, use, disclose, and protect your personal information when you use the Glowy mobile application and web platform. By using Glowy, you consent to the practices described in this policy.</p>
+
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <ol>
+      <li><a href="#collection">Information We Collect</a></li>
+      <li><a href="#use">How We Use Your Information</a></li>
+      <li><a href="#sharing">How We Share Your Information</a></li>
+      <li><a href="#retention">Data Retention</a></li>
+      <li><a href="#security">Data Security</a></li>
+      <li><a href="#rights">Your Rights and Choices</a></li>
+      <li><a href="#children">Children's Privacy</a></li>
+      <li><a href="#california">California Privacy Rights (CCPA/CPRA)</a></li>
+      <li><a href="#international">International Users</a></li>
+      <li><a href="#thirdparty">Third-Party Links</a></li>
+      <li><a href="#changes">Changes to This Policy</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ol>
+  </div>
+
+  <h2 id="collection">1. Information We Collect</h2>
+
+  <h3>Information You Provide Directly</h3>
+  <ul>
+    <li><strong>Account information:</strong> When you create an account, we collect your email address and password. Passwords are securely hashed and stored by our authentication provider; we never have access to your plaintext password.</li>
+    <li><strong>Profile information:</strong> You may optionally provide a display name and profile photo.</li>
+    <li><strong>Collection data:</strong> The votives you add to your collection, including names, quantities, images, and purchase prices.</li>
+    <li><strong>Wishlist data:</strong> The votives you save to your wishlist.</li>
+    <li><strong>Gift records:</strong> Information about votives you have given as gifts, including recipient names, occasions, and dates.</li>
+    <li><strong>Community catalog submissions:</strong> If you submit information about votives not in our catalog, we collect the votive name and any photos you upload.</li>
+    <li><strong>Social feed content:</strong> Photos, captions, votive tags, and likes you create in the social feed.</li>
+    <li><strong>Photos for AI identification:</strong> When you use the photo identification feature, we collect the photo you submit for processing.</li>
+    <li><strong>Communications:</strong> If you contact us at support@myglowy.app, we collect the content of your messages.</li>
+  </ul>
+
+  <h3>Information Collected Automatically</h3>
+  <ul>
+    <li><strong>Usage data:</strong> We may collect information about how you use Glowy, such as features accessed, search queries within the app, and interaction patterns. This helps us improve the app.</li>
+    <li><strong>Device information:</strong> We may collect basic device information such as device type, operating system version, and app version for troubleshooting and compatibility purposes.</li>
+    <li><strong>Log data:</strong> Our servers may automatically record information such as your IP address, access times, and referring URLs when you use Glowy.</li>
+  </ul>
+
+  <h3>Information We Do Not Collect</h3>
+  <ul>
+    <li>We do not collect location data.</li>
+    <li>We do not collect contacts or address book information.</li>
+    <li>We do not use cookies for advertising or tracking purposes.</li>
+    <li>We do not collect financial or payment information directly (subscription payments are processed by Apple's App Store or Google Play).</li>
+  </ul>
+
+  <h2 id="use">2. How We Use Your Information</h2>
+  <p>We use your information for the following purposes:</p>
+  <ul>
+    <li><strong>Providing the service:</strong> To operate your account, store your collection and wishlist data, display your social feed posts, and enable sharing features.</li>
+    <li><strong>AI photo identification:</strong> When you submit a photo for identification, we send the image to our AI service provider (Anthropic) for analysis. The AI identifies the color family of the votive in your photo to help you find it in the catalog. Photos submitted for identification may be retained to improve the accuracy of our identification features over time.</li>
+    <li><strong>Community catalog:</strong> To display user-submitted votive information and photos to all authenticated users, helping the community track discontinued and unlisted votives.</li>
+    <li><strong>Improving Glowy:</strong> To understand how users interact with the app, identify bugs, and prioritize new features.</li>
+    <li><strong>Communications:</strong> To respond to your support inquiries and, if applicable, to notify you of important changes to the app or these policies.</li>
+  </ul>
+
+  <h2 id="sharing">3. How We Share Your Information</h2>
+  <p>We do not sell your personal information to third parties.</p>
+
+  <h3>With Other Glowy Users</h3>
+  <ul>
+    <li><strong>Social feed:</strong> Posts, photos, captions, likes, and your display name are visible to all authenticated Glowy users.</li>
+    <li><strong>Community catalog:</strong> Votive entries and photos you submit to the community catalog are visible to all authenticated users.</li>
+    <li><strong>Shared collections and wishlists:</strong> If you enable sharing, your collection or wishlist is accessible to anyone with your unique share link, including unauthenticated visitors.</li>
+  </ul>
+
+  <h3>With Service Providers</h3>
+  <p>We use the following third-party service providers to operate Glowy:</p>
+  <table class="data-table">
+    <tr>
+      <th>Provider</th>
+      <th>Purpose</th>
+      <th>Data Location</th>
+    </tr>
+    <tr>
+      <td><strong>Supabase</strong></td>
+      <td>Database, authentication, and file storage. Stores your account information, collection data, and uploaded photos.</td>
+      <td>United States</td>
+    </tr>
+    <tr>
+      <td><strong>Anthropic</strong></td>
+      <td>AI services for photo identification. When you use the feature, your photo is sent to Anthropic's API for analysis. Photos sent via the API are not used by Anthropic to train their models.</td>
+      <td>United States</td>
+    </tr>
+    <tr>
+      <td><strong>Apple App Store / Google Play</strong></td>
+      <td>Subscription billing and payment processing. We do not receive or store your payment card details.</td>
+      <td>Varies by provider</td>
+    </tr>
+  </table>
+  <p>We require our service providers to protect your information and use it only for the purposes of providing services to Glowy.</p>
+
+  <h3>For Legal Reasons</h3>
+  <p>We may disclose your information if required by law, regulation, legal process, or governmental request, or if we believe disclosure is necessary to protect the rights, property, or safety of Glowy, our users, or the public.</p>
+
+  <h3>Business Transfers</h3>
+  <p>If Glowy is involved in a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction. We will notify you of any such change in ownership or control of your information.</p>
+
+  <h2 id="retention">4. Data Retention</h2>
+  <ul>
+    <li><strong>Account data:</strong> We retain your account information and associated data for as long as your account is active. If you request account deletion, we will delete your personal data within 30 days, except as noted below.</li>
+    <li><strong>Community contributions:</strong> Community catalog entries and social feed posts that have been shared with other users may persist after account deletion, as they have become part of the shared community resource. Your display name will be anonymized on these contributions.</li>
+    <li><strong>AI training data:</strong> Aggregated and anonymized data derived from photos submitted for AI identification may be retained indefinitely to improve our identification features, even after account deletion. Original photos will be deleted upon account deletion.</li>
+    <li><strong>Legal obligations:</strong> We may retain certain information as required by law or for legitimate business purposes, such as fraud prevention or dispute resolution.</li>
+  </ul>
+
+  <h2 id="security">5. Data Security</h2>
+  <p>We take reasonable measures to protect your personal information from unauthorized access, use, or disclosure. These measures include:</p>
+  <ul>
+    <li>Encrypted data transmission (HTTPS/TLS)</li>
+    <li>Secure password hashing through our authentication provider</li>
+    <li>Row-level security policies ensuring users can only access their own data</li>
+    <li>JWT-based authentication on all private API endpoints</li>
+    <li>Secure cloud infrastructure provided by our service providers</li>
+  </ul>
+  <p>However, no method of transmission over the internet or electronic storage is completely secure. We cannot guarantee absolute security of your information.</p>
+
+  <h2 id="rights">6. Your Rights and Choices</h2>
+
+  <h3>Access and Portability</h3>
+  <p>You can view your collection, wishlist, gift, and profile data at any time within the app. You can also export all your personal data directly from the app at any time. If you would like a copy of all personal data we hold about you, contact us at <a href="mailto:support@myglowy.app" style="color:var(--peach);">support@myglowy.app</a> and we will provide it within 30 days.</p>
+
+  <h3>Correction</h3>
+  <p>You can update your profile information, collection data, wishlist, and gift records directly within the app at any time.</p>
+
+  <h3>Deletion</h3>
+  <p>You may delete your account and all associated personal data directly within the app, or by contacting us at <a href="mailto:support@myglowy.app" style="color:var(--peach);">support@myglowy.app</a>. We will process deletion requests within 30 days, subject to the retention exceptions described in Section 4.</p>
+
+  <h3>Sharing Controls</h3>
+  <p>You control whether your collection and wishlist are shared. Sharing is disabled by default and can be toggled on or off at any time from your profile page. Disabling sharing immediately deactivates your share links.</p>
+
+  <h3>Opt-Out of AI Photo Processing</h3>
+  <p>You are not required to use the photo identification feature. If you choose not to submit photos for identification, no photos will be processed by our AI service provider.</p>
+
+  <h3>Email Communications</h3>
+  <p>If you opted into marketing communications during signup, you may opt out at any time by contacting <a href="mailto:support@myglowy.app" style="color:var(--peach);">support@myglowy.app</a>. Transactional communications (such as account confirmation and security notices) are required and cannot be opted out of while your account is active.</p>
+
+  <h2 id="children">7. Children's Privacy</h2>
+  <p>Glowy is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. We require users to confirm they are 13 or older during account creation. If we become aware that we have collected information from a child under 13, we will take steps to delete that information promptly. If you believe a child under 13 has provided us with personal information, please contact us at <a href="mailto:support@myglowy.app" style="color:var(--peach);">support@myglowy.app</a>.</p>
+
+  <h2 id="california">8. California Privacy Rights (CCPA/CPRA)</h2>
+  <p>If you are a California resident, you have additional rights under the California Consumer Privacy Act (CCPA) and the California Privacy Rights Act (CPRA):</p>
+  <ul>
+    <li><strong>Right to know:</strong> You may request that we disclose the categories and specific pieces of personal information we have collected about you, the categories of sources, the business purposes for collection, and the categories of third parties with whom we share it.</li>
+    <li><strong>Right to delete:</strong> You may request deletion of your personal information, subject to certain exceptions.</li>
+    <li><strong>Right to opt out of sale:</strong> We do not sell your personal information. We do not share your personal information for cross-context behavioral advertising.</li>
+    <li><strong>Right to non-discrimination:</strong> We will not discriminate against you for exercising your privacy rights.</li>
+  </ul>
+  <p>To exercise these rights, contact us at <a href="mailto:support@myglowy.app" style="color:var(--peach);">support@myglowy.app</a>. We will respond within 45 days.</p>
+
+  <h2 id="international">9. International Users</h2>
+  <p>Glowy is operated from the United States. If you are accessing Glowy from outside the United States, please be aware that your information will be transferred to, stored, and processed in the United States, where data protection laws may differ from those of your country. By using Glowy, you consent to this transfer.</p>
+  <p>If you are located in the European Economic Area (EEA) or the United Kingdom, you may have additional rights under the General Data Protection Regulation (GDPR), including the right to access, rectification, erasure, data portability, and the right to lodge a complaint with a supervisory authority. Contact us at <a href="mailto:support@myglowy.app" style="color:var(--peach);">support@myglowy.app</a> to exercise these rights.</p>
+
+  <h2 id="thirdparty">10. Third-Party Links</h2>
+  <p>Glowy may contain links to third-party websites, such as glassybaby.com product pages. We are not responsible for the privacy practices of these external sites. We encourage you to review their privacy policies before providing any personal information.</p>
+
+  <h2 id="changes">11. Changes to This Privacy Policy</h2>
+  <p>We may update this Privacy Policy from time to time. If we make material changes, we will notify you through the app or by other reasonable means. Your continued use of Glowy after changes take effect constitutes your acceptance of the revised policy. If you do not agree to the revised policy, you must stop using Glowy.</p>
+
+  <h2 id="contact">12. Contact Us</h2>
+  <p>If you have questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at:</p>
+  <p><strong>Email:</strong> <a href="mailto:support@myglowy.app" style="color:var(--peach);">support@myglowy.app</a></p>
+  <p>We will respond to inquiries within a reasonable timeframe.</p>
+
+  <p style="margin-top:48px;font-size:13px;color:var(--honey);font-style:italic;">This Privacy Policy is effective as of April 7, 2026.</p>
+</main>
+
+<footer>
+  <span class="footer-left">© 2026 glowy · Not affiliated with Glassybaby LLC</span>
+  <div class="footer-links">
+    <a href="/">home</a>
+    <a href="/terms">terms of service</a>
+    <a href="/privacy">privacy policy</a>
+    <a href="mailto:support@myglowy.app">support@myglowy.app</a>
+  </div>
+</footer>
+
+</body>
+</html>

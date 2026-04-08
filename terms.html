@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — glowy</title>
+  <meta name="description" content="Terms of Service for the glowy app." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --peach:  #E8A87C;
+      --cream:  #FFF5EE;
+      --honey:  #C4A882;
+      --dark:   #3A3330;
+      --white:  #FFFBF7;
+      --border: rgba(232,168,124,0.2);
+      --ff:     'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+    body {
+      font-family: var(--ff);
+      background: var(--white);
+      color: var(--dark);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 48px;
+      background: rgba(255,251,247,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo svg { width: 28px; height: auto; }
+    .nav-wordmark { font-size: 18px; font-weight: 700; color: var(--dark); letter-spacing: -0.02em; }
+    .nav-back {
+      font-size: 13px;
+      color: var(--honey);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--peach); }
+
+    /* ── Layout ── */
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 72px 24px 120px;
+    }
+
+    /* ── Header ── */
+    .doc-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--peach);
+      margin-bottom: 14px;
+    }
+    .doc-title {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .doc-meta {
+      font-size: 14px;
+      color: var(--honey);
+      margin-bottom: 40px;
+    }
+    .doc-divider {
+      height: 2px;
+      background: linear-gradient(90deg, var(--peach), transparent);
+      border: none;
+      margin-bottom: 48px;
+      border-radius: 2px;
+    }
+
+    /* ── Disclaimer callout ── */
+    .callout {
+      background: var(--cream);
+      border-left: 3px solid var(--peach);
+      border-radius: 0 10px 10px 0;
+      padding: 16px 20px;
+      font-size: 14px;
+      color: var(--dark);
+      margin: 32px 0;
+      line-height: 1.65;
+    }
+    .callout strong { color: var(--peach); }
+
+    /* ── Prose ── */
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: -0.01em;
+      margin: 48px 0 12px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+    }
+    h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 28px 0 8px;
+    }
+    p {
+      font-size: 15px;
+      color: var(--dark);
+      margin-bottom: 16px;
+      line-height: 1.75;
+    }
+    ul, ol {
+      margin: 0 0 20px 0;
+      padding-left: 24px;
+    }
+    li {
+      font-size: 15px;
+      color: var(--dark);
+      margin-bottom: 8px;
+      line-height: 1.65;
+    }
+    strong { color: var(--dark); }
+    .caps {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    /* ── TOC ── */
+    .toc {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 48px;
+      border: 1px solid var(--border);
+    }
+    .toc-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--honey);
+      margin-bottom: 14px;
+    }
+    .toc ol {
+      padding-left: 20px;
+      margin: 0;
+    }
+    .toc li {
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+    .toc a { color: var(--peach); text-decoration: none; }
+    .toc a:hover { text-decoration: underline; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--dark);
+      padding: 40px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-left { font-size: 13px; color: rgba(255,251,247,0.5); }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .footer-links a { font-size: 13px; color: rgba(255,251,247,0.5); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--peach); }
+
+    @media (max-width: 600px) {
+      nav { padding: 14px 20px; }
+      main { padding: 48px 20px 80px; }
+      .doc-title { font-size: 30px; }
+      footer { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#E8A87C;stop-opacity:1"/>
+          <stop offset="100%" style="stop-color:#C4A882;stop-opacity:1"/>
+        </linearGradient>
+      </defs>
+      <path d="M 30 50 Q 25 70 25 100 Q 25 130 40 140 L 80 140 Q 95 130 95 100 Q 95 70 90 50 Z" fill="url(#g1)" opacity="0.8"/>
+      <path d="M 35 55 Q 32 75 32 100 Q 32 125 40 135" stroke="#FFFBF7" stroke-width="3" fill="none" opacity="0.6"/>
+      <path d="M 60 30 Q 50 10 55 0 Q 60 15 60 30 Q 65 15 70 0 Q 75 10 65 30 Q 62 35 60 40 Z" fill="#E8A87C"/>
+      <path d="M 60 25 Q 55 15 58 5 Q 60 18 60 25 Q 63 18 65 5 Q 68 15 62 25 Z" fill="#FFF5EE"/>
+    </svg>
+    <span class="nav-wordmark">glowy</span>
+  </a>
+  <a href="/" class="nav-back">← back to myglowy.app</a>
+</nav>
+
+<main>
+  <div class="doc-eyebrow">legal</div>
+  <h1 class="doc-title">Terms of Service</h1>
+  <div class="doc-meta">Last Updated: April 7, 2026 · myGlowy</div>
+  <hr class="doc-divider" />
+
+  <div class="callout">
+    <strong>Not affiliated with Glassybaby LLC.</strong> Glowy is an independent application created by and for the Glassybaby collector community. Glowy is not affiliated with, endorsed by, sponsored by, or officially connected to Glassybaby LLC or any of its subsidiaries or affiliates. The Glassybaby name and trademarks are the property of Glassybaby LLC.
+  </div>
+
+  <p>Welcome to myGlowy ("Glowy," "we," "us," or "our"). Glowy is a mobile application and web platform that enables Glassybaby collectors to catalog, track, and manage their collections. By accessing or using Glowy, you agree to be bound by these Terms of Service ("Terms"). If you do not agree, do not use the app.</p>
+
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <ol>
+      <li><a href="#eligibility">Eligibility and Accounts</a></li>
+      <li><a href="#description">Description of Service</a></li>
+      <li><a href="#ugc">User-Generated Content</a></li>
+      <li><a href="#conduct">Prohibited Conduct</a></li>
+      <li><a href="#thirdparty">Third-Party Content and Data</a></li>
+      <li><a href="#ip">Intellectual Property</a></li>
+      <li><a href="#ai">AI-Powered Features</a></li>
+      <li><a href="#privacy">Privacy</a></li>
+      <li><a href="#sharing">Shared Collections and Wishlists</a></li>
+      <li><a href="#liability">Limitation of Liability</a></li>
+      <li><a href="#indemnification">Indemnification</a></li>
+      <li><a href="#disputes">Dispute Resolution</a></li>
+      <li><a href="#termination">Termination</a></li>
+      <li><a href="#dmca">Copyright Infringement / DMCA Policy</a></li>
+      <li><a href="#changes">Changes to These Terms</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </div>
+
+  <h2 id="eligibility">1. Eligibility and Accounts</h2>
+  <p>You must be at least 13 years of age to use Glowy. If you are under 18, you represent that a parent or legal guardian has reviewed and agreed to these Terms on your behalf. By creating an account, you agree to provide accurate, current, and complete information and to keep your login credentials secure. You are responsible for all activity that occurs under your account.</p>
+
+  <h2 id="description">2. Description of Service</h2>
+  <p>Glowy provides tools for Glassybaby collectors, including:</p>
+  <ul>
+    <li><strong>Collection tracking:</strong> catalog the votives you own, including quantities and purchase information</li>
+    <li><strong>Browse catalog:</strong> search and discover Glassybaby products using publicly available product data</li>
+    <li><strong>Wishlist:</strong> save votives you want and share your wishlist with friends and family</li>
+    <li><strong>Community catalog:</strong> contribute information about discontinued or unlisted votives</li>
+    <li><strong>Social feed:</strong> share photos of your collection and interact with other collectors</li>
+    <li><strong>Photo identification:</strong> use AI-assisted tools to identify votives by color family</li>
+    <li><strong>Gift tracker:</strong> record votives given to others</li>
+  </ul>
+  <p>We may add, modify, or discontinue features at any time.</p>
+
+  <h2 id="ugc">3. User-Generated Content</h2>
+  <p>Glowy allows you to upload photos, submit community catalog entries, create social feed posts, and contribute other content (collectively, "User Content"). You retain ownership of your User Content. However, by uploading or submitting User Content to Glowy, you grant us the following license:</p>
+  <div class="callout">
+    <strong>License Grant:</strong> You grant Glowy a worldwide, non-exclusive, royalty-free, transferable, sublicensable license to use, display, reproduce, modify, distribute, and create derivative works from your User Content for the purposes of operating, improving, and promoting the Glowy platform. This includes, without limitation: (a) displaying your photos in the community catalog, social feed, and product listings; (b) using your photos to train, improve, and operate our AI-powered photo identification features; (c) creating thumbnails, previews, or modified versions for display within the app; and (d) featuring User Content in marketing or promotional materials for Glowy.
+  </div>
+  <p>This license continues even if you stop using Glowy, to the extent your User Content has been shared with other users, incorporated into the community catalog, or used to train our AI systems. You may delete your individual posts and photos from the social feed at any time, and we will remove them from public display within a reasonable time, but cached or archived copies and AI training data derived from your content may persist.</p>
+  <p><strong>You represent and warrant that:</strong> (a) you own or have the necessary rights to submit your User Content; (b) your User Content does not infringe the intellectual property or privacy rights of any third party; (c) your photos depict products you own, have owned, or have permission to photograph; and (d) your User Content does not contain false, misleading, defamatory, or unlawful material.</p>
+
+  <h2 id="conduct">4. Prohibited Conduct</h2>
+  <p>You agree not to:</p>
+  <ul>
+    <li>Upload content you do not own or have rights to use</li>
+    <li>Upload content that is offensive, harassing, threatening, or violates any law</li>
+    <li>Misrepresent the identity, condition, or provenance of any votive in the community catalog</li>
+    <li>Attempt to access other users' accounts or private data</li>
+    <li>Use automated tools to scrape, crawl, or extract data from Glowy</li>
+    <li>Use Glowy for any commercial purpose other than personal collection management, unless expressly authorized</li>
+    <li>Interfere with or disrupt the integrity or performance of the platform</li>
+    <li>Reverse engineer, decompile, or disassemble any part of the Glowy application</li>
+  </ul>
+
+  <h2 id="thirdparty">5. Third-Party Content and Data</h2>
+  <p>Glowy displays product information, including names, descriptions, and pricing, sourced from publicly available data. This information is provided for identification and collection-tracking purposes only.</p>
+  <p><strong>Accuracy disclaimer:</strong> Product information displayed in Glowy, including prices and availability, may not reflect current data from any retailer. Glowy does not guarantee the accuracy, completeness, or timeliness of any product information. Always verify product details directly with the retailer before making purchase decisions.</p>
+  <p>Glowy is not a retailer and does not sell Glassybaby products. Links to external retailer websites are provided for your convenience and do not constitute an endorsement or affiliation.</p>
+
+  <h2 id="ip">6. Intellectual Property</h2>
+  <p>The Glowy app, including its design, code, logos, brand elements, and original content, is owned by Glowy and protected by copyright, trademark, and other intellectual property laws. You may not copy, modify, distribute, or create derivative works from any part of the Glowy platform without our prior written consent.</p>
+  <p>User Content remains the property of the respective users, subject to the license granted in Section 3.</p>
+  <p>Third-party trademarks, including "Glassybaby," referenced within the app are the property of their respective owners. Their use within Glowy is solely for identification and informational purposes and does not imply any affiliation, endorsement, or sponsorship.</p>
+
+  <h2 id="ai">7. AI-Powered Features</h2>
+  <p>Glowy uses artificial intelligence to provide photo identification and other features. AI features are provided on an "as-is" basis. AI-generated results, including color family identification and product suggestions, are approximations and may not be accurate. You should not rely solely on AI features to determine the identity or value of any votive.</p>
+  <p>By using AI features, you acknowledge that photos you submit for identification may be processed by third-party AI service providers. We select providers with appropriate data handling practices, but Glowy is not responsible for the data practices of third-party AI providers beyond our contractual agreements with them.</p>
+
+  <h2 id="privacy">8. Privacy</h2>
+  <p>Your use of Glowy is also governed by our <a href="/privacy" style="color:var(--peach);">Privacy Policy</a>, which describes how we collect, use, and protect your personal information. By using Glowy, you consent to the data practices described in the Privacy Policy.</p>
+  <p>Key data practices relevant to these Terms: your collection data, wishlist, and gift records are private by default and only shared when you explicitly enable sharing features. Community catalog contributions and social feed posts are visible to all authenticated users.</p>
+
+  <h2 id="sharing">9. Shared Collections and Wishlists</h2>
+  <p>Glowy allows you to generate shareable links for your collection and wishlist. When you enable sharing, anyone with the link can view the shared content without needing a Glowy account. You are responsible for controlling who you share these links with. You can disable sharing at any time from your profile, which will immediately deactivate existing share links.</p>
+
+  <h2 id="liability">10. Limitation of Liability</h2>
+  <p class="caps">GLOWY IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+  <p class="caps">TO THE MAXIMUM EXTENT PERMITTED BY LAW, GLOWY AND ITS OFFICERS, DIRECTORS, EMPLOYEES, AND AGENTS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF DATA, LOSS OF PROFITS, OR DAMAGES ARISING FROM YOUR USE OF OR INABILITY TO USE THE PLATFORM.</p>
+  <p class="caps">IN NO EVENT SHALL OUR TOTAL LIABILITY TO YOU FOR ALL CLAIMS ARISING FROM OR RELATED TO THESE TERMS OR YOUR USE OF GLOWY EXCEED THE AMOUNT YOU PAID TO US IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM, OR FIFTY DOLLARS ($50), WHICHEVER IS GREATER.</p>
+  <p>Some jurisdictions do not allow the exclusion of certain warranties or limitation of liability. In such jurisdictions, our liability is limited to the fullest extent permitted by law.</p>
+
+  <h2 id="indemnification">11. Indemnification</h2>
+  <p>You agree to indemnify, defend, and hold harmless Glowy and its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses (including reasonable attorneys' fees) arising from or related to: (a) your use of Glowy; (b) your User Content; (c) your violation of these Terms; or (d) your violation of any rights of another person or entity.</p>
+
+  <h2 id="disputes">12. Dispute Resolution</h2>
+  <p>You and Glowy agree to resolve any disputes arising from or related to these Terms or your use of Glowy through binding individual arbitration, except that either party may bring claims in small claims court if eligible. Arbitration shall be conducted under the rules of the American Arbitration Association. You agree to waive any right to a jury trial and to participate in a class action.</p>
+  <p>Before initiating arbitration, you agree to first contact us at <a href="mailto:support@myglowy.app" style="color:var(--peach);">support@myglowy.app</a> to attempt to resolve the dispute informally. If we cannot resolve the dispute within thirty (30) days, either party may proceed with arbitration.</p>
+  <p>These Terms are governed by the laws of the State of Washington, without regard to conflict of law principles.</p>
+
+  <h2 id="termination">13. Termination</h2>
+  <p>You may stop using Glowy at any time. We may suspend or terminate your access at our discretion if we believe you have violated these Terms, with or without notice. Upon termination, your right to use Glowy ceases immediately. Sections 3 (User Content license), 6 (Intellectual Property), 10 (Limitation of Liability), 11 (Indemnification), 12 (Dispute Resolution), and 14 (DMCA Policy) survive termination.</p>
+  <p>If you wish to delete your account and associated data, you may contact us at <a href="mailto:support@myglowy.app" style="color:var(--peach);">support@myglowy.app</a>.</p>
+
+  <h2 id="dmca">14. Copyright Infringement / DMCA Policy</h2>
+  <p>Glowy respects the intellectual property rights of others and expects our users to do the same. In accordance with the Digital Millennium Copyright Act of 1998 ("DMCA"), we will respond promptly to claims of copyright infringement that are reported to our designated agent.</p>
+
+  <h3>Reporting Copyright Infringement</h3>
+  <p>If you believe that content available on Glowy infringes your copyright, please submit a notice to our DMCA Designated Agent containing the following information:</p>
+  <ol>
+    <li>A physical or electronic signature of the copyright owner or a person authorized to act on their behalf.</li>
+    <li>Identification of the copyrighted work claimed to have been infringed.</li>
+    <li>Identification of the material that is claimed to be infringing and information reasonably sufficient to permit us to locate the material (e.g., a description of where the content appears in the app).</li>
+    <li>Your contact information, including your name, address, telephone number, and email address.</li>
+    <li>A statement that you have a good faith belief that use of the material in the manner complained of is not authorized by the copyright owner, its agent, or the law.</li>
+    <li>A statement, made under penalty of perjury, that the above information is accurate and that you are the copyright owner or are authorized to act on the copyright owner's behalf.</li>
+  </ol>
+
+  <div class="callout">
+    <strong>DMCA Designated Agent:</strong><br/>
+    Email: <a href="mailto:support@myglowy.app" style="color:var(--peach);">support@myglowy.app</a><br/>
+    This agent is registered with the U.S. Copyright Office in accordance with the DMCA.
+  </div>
+
+  <h3>Counter-Notification</h3>
+  <p>If you believe your content was removed by mistake or misidentification, you may submit a written counter-notification to our DMCA Designated Agent containing: (a) your physical or electronic signature; (b) identification of the material removed and the location where it appeared before removal; (c) a statement under penalty of perjury that you have a good faith belief the material was removed by mistake or misidentification; and (d) your name, address, telephone number, and a statement that you consent to the jurisdiction of the federal court in your judicial district and that you will accept service of process from the person who filed the original complaint.</p>
+
+  <h3>Repeat Infringers</h3>
+  <p>Glowy will, in appropriate circumstances, disable and/or terminate the accounts of users who are repeat infringers of third-party copyrights.</p>
+
+  <h2 id="changes">15. Changes to These Terms</h2>
+  <p>We may update these Terms from time to time. If we make material changes, we will notify you through the app or by other reasonable means. Your continued use of Glowy after changes take effect constitutes your acceptance of the revised Terms. If you do not agree to the revised Terms, you must stop using Glowy.</p>
+
+  <h2 id="contact">16. Contact</h2>
+  <p>If you have questions about these Terms, please contact us at:</p>
+  <p><strong>Email:</strong> <a href="mailto:support@myglowy.app" style="color:var(--peach);">support@myglowy.app</a></p>
+  <p>We will respond to inquiries within a reasonable timeframe.</p>
+
+  <p style="margin-top:48px;font-size:13px;color:var(--honey);font-style:italic;">These Terms of Service are effective as of April 7, 2026.</p>
+</main>
+
+<footer>
+  <span class="footer-left">© 2026 glowy · Not affiliated with Glassybaby LLC</span>
+  <div class="footer-links">
+    <a href="/">home</a>
+    <a href="/terms">terms of service</a>
+    <a href="/privacy">privacy policy</a>
+    <a href="mailto:support@myglowy.app">support@myglowy.app</a>
+  </div>
+</footer>
+
+</body>
+</html>
