@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <title>glowy — a shared collection</title>
+  <meta name="description" content="A shared glassybaby collection on glowy. Every piece, remembered." />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:title" content="glowy — every piece, remembered." />
+  <meta property="og:description" content="A shared glassybaby collection on glowy." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://myglowy.app" />
+  <meta property="og:image" content="https://myglowy.app/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --peach:   #E8A87C;
+      --cream:   #FFF5EE;
+      --honey:   #C4A882;
+      --dark:    #3A3330;
+      --white:   #FFFBF7;
+      --border:  rgba(232,168,124,0.2);
+      --shadow:  0 8px 24px rgba(58,51,48,0.12);
+      --ff:      'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: var(--ff);
+      background: var(--white);
+      color: var(--dark);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      background: rgba(255,251,247,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo svg { width: 28px; height: auto; display: block; }
+    .nav-wordmark {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: -0.02em;
+    }
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 18px;
+      background: var(--peach);
+      color: var(--white);
+      font-family: var(--ff);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      letter-spacing: 0.01em;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(232,168,124,0.35); }
+
+    /* ── Layout ── */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 24px 120px;
+    }
+
+    /* ── Header ── */
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+      opacity: 0;
+      animation: fadeIn 0.6s ease forwards;
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--peach);
+      margin-bottom: 14px;
+    }
+    .header h1 {
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+    .header h1 .accent { color: var(--peach); }
+    .header .meta {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--honey);
+      letter-spacing: 0.02em;
+    }
+    .divider {
+      height: 2px;
+      max-width: 180px;
+      margin: 32px auto 0;
+      background: linear-gradient(90deg, transparent, var(--peach), transparent);
+      border-radius: 2px;
+    }
+
+    /* ── Grid ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 72px;
+      opacity: 0;
+      animation: fadeIn 0.6s ease 0.15s forwards;
+    }
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .card-photo {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: var(--cream);
+      overflow: hidden;
+    }
+    .card-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .card-photo .fallback {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--honey);
+    }
+    .qty-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--peach);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 100px;
+      letter-spacing: 0.02em;
+      box-shadow: 0 2px 8px rgba(58,51,48,0.15);
+    }
+    .card-body {
+      padding: 14px 16px 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .card-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.3;
+    }
+    .card-price {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--honey);
+      letter-spacing: 0.01em;
+    }
+
+    /* ── States (loading / error / empty) ── */
+    .state {
+      text-align: center;
+      padding: 96px 24px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .state .icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 24px;
+      border-radius: 50%;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--peach);
+    }
+    .state .icon svg { width: 28px; height: 28px; }
+    .state h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .state p {
+      font-size: 15px;
+      color: var(--honey);
+      line-height: 1.6;
+    }
+    .spinner {
+      width: 36px;
+      height: 36px;
+      border: 3px solid var(--cream);
+      border-top-color: var(--peach);
+      border-radius: 50%;
+      animation: spin 0.9s linear infinite;
+      margin: 0 auto 24px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    /* ── CTA Banner ── */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--cream), rgba(232,168,124,0.12));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 48px 32px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      animation: fadeIn 0.6s ease 0.3s forwards;
+    }
+    .cta-banner h3 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .cta-banner p {
+      font-size: 15px;
+      color: var(--honey);
+      margin-bottom: 28px;
+      max-width: 440px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      background: var(--peach);
+      color: var(--white);
+      font-family: var(--ff);
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      letter-spacing: 0.02em;
+    }
+    .cta-button:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(232,168,124,0.4); }
+    .cta-tagline {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--peach);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--dark);
+      padding: 36px 24px;
+      text-align: center;
+    }
+    .footer-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .footer-brand svg { width: 22px; }
+    .footer-brand span {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+    .footer-tagline {
+      font-size: 12px;
+      color: rgba(255,251,247,0.5);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 12px;
+      color: rgba(255,251,247,0.5);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s ease;
+    }
+    .footer-links a:hover { color: var(--peach); }
+
+    /* ── Responsive ── */
+    @media (max-width: 700px) {
+      nav { padding: 14px 18px; }
+      .nav-cta { padding: 7px 14px; font-size: 12px; }
+      main { padding: 36px 18px 96px; }
+      .header h1 { font-size: 30px; }
+      .header { margin-bottom: 36px; }
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        margin-bottom: 56px;
+      }
+      .card-body { padding: 12px 14px 14px; }
+      .card-name { font-size: 14px; }
+      .card-price { font-size: 12px; }
+      .cta-banner { padding: 36px 24px; border-radius: 20px; }
+      .cta-banner h3 { font-size: 22px; }
+      .cta-banner p { font-size: 14px; margin-bottom: 22px; }
+      .cta-button { padding: 12px 26px; font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="votive-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#E8A87C;stop-opacity:1"/>
+          <stop offset="100%" style="stop-color:#C4A882;stop-opacity:1"/>
+        </linearGradient>
+      </defs>
+      <path d="M 30 50 Q 25 70 25 100 Q 25 130 40 140 L 80 140 Q 95 130 95 100 Q 95 70 90 50 Z" fill="url(#votive-grad)" opacity="0.8"/>
+      <path d="M 35 55 Q 32 75 32 100 Q 32 125 40 135" stroke="#FFFBF7" stroke-width="3" fill="none" opacity="0.6"/>
+      <path d="M 60 30 Q 50 10 55 0 Q 60 15 60 30 Q 65 15 70 0 Q 75 10 65 30 Q 62 35 60 40 Z" fill="#E8A87C"/>
+      <path d="M 60 25 Q 55 15 58 5 Q 60 18 60 25 Q 63 18 65 5 Q 68 15 62 25 Z" fill="#FFF5EE"/>
+    </svg>
+    <span class="nav-wordmark">glowy</span>
+  </a>
+  <a href="#get-the-app" class="nav-cta" id="navCta">get the app</a>
+</nav>
+
+<main id="main">
+  <!-- Loading state (shown by default) -->
+  <div class="state" id="loadingState">
+    <div class="spinner"></div>
+    <h2>loading the collection</h2>
+    <p>gathering every piece, every glow.</p>
+  </div>
+
+  <!-- Header (hidden until data loads) -->
+  <div class="header" id="header" style="display:none;">
+    <div class="eyebrow" id="eyebrow">a shared collection</div>
+    <h1 id="title"></h1>
+    <div class="meta" id="meta"></div>
+    <div class="divider"></div>
+  </div>
+
+  <!-- Grid of items (hidden until data loads) -->
+  <div class="grid" id="grid" style="display:none;"></div>
+
+  <!-- Empty state (hidden unless needed) -->
+  <div class="state" id="emptyState" style="display:none;">
+    <div class="icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5Z"/>
+      </svg>
+    </div>
+    <h2>no pieces yet</h2>
+    <p>this collection is still waiting for its first glow.</p>
+  </div>
+
+  <!-- Error state (hidden unless needed) -->
+  <div class="state" id="errorState" style="display:none;">
+    <div class="icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="8" x2="12" y2="12"/>
+        <line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+    </div>
+    <h2 id="errorTitle">this link isn't available</h2>
+    <p id="errorMessage">the collection may have been unshared, or the link might be incorrect.</p>
+  </div>
+
+  <!-- CTA banner (hidden until data loads) -->
+  <section class="cta-banner" id="ctaBanner" style="display:none;" aria-labelledby="ctaTitle">
+    <a id="get-the-app"></a>
+    <div class="cta-tagline">every piece, remembered.</div>
+    <h3 id="ctaTitle">start your own glow</h3>
+    <p>catalog your glassybaby pieces, share them with friends, and keep every story in one warm place.</p>
+    <a href="https://myglowy.app" class="cta-button">
+      get glowy →
+    </a>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-brand">
+    <svg viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="footer-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#E8A87C;stop-opacity:1"/>
+          <stop offset="100%" style="stop-color:#C4A882;stop-opacity:1"/>
+        </linearGradient>
+      </defs>
+      <path d="M 30 50 Q 25 70 25 100 Q 25 130 40 140 L 80 140 Q 95 130 95 100 Q 95 70 90 50 Z" fill="url(#footer-grad)" opacity="0.9"/>
+      <path d="M 60 30 Q 50 10 55 0 Q 60 15 60 30 Q 65 15 70 0 Q 75 10 65 30 Q 62 35 60 40 Z" fill="#E8A87C"/>
+    </svg>
+    <span>glowy</span>
+  </div>
+  <div class="footer-tagline">every piece, remembered.</div>
+  <div class="footer-links">
+    <a href="/terms">terms of service</a>
+    <a href="/privacy">privacy policy</a>
+    <a href="/">about glowy</a>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    const API_BASE = "https://glowy-app-production.up.railway.app";
+
+    // Parse query params — accept either ?share=X or ?token=X, and ?type=collection|wishlist
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get("share") || params.get("token");
+    const type = (params.get("type") || "collection").toLowerCase();
+    const validType = type === "wishlist" ? "wishlist" : "collection";
+
+    const els = {
+      loading: document.getElementById("loadingState"),
+      header:  document.getElementById("header"),
+      eyebrow: document.getElementById("eyebrow"),
+      title:   document.getElementById("title"),
+      meta:    document.getElementById("meta"),
+      grid:    document.getElementById("grid"),
+      empty:   document.getElementById("emptyState"),
+      error:   document.getElementById("errorState"),
+      errorTitle: document.getElementById("errorTitle"),
+      errorMessage: document.getElementById("errorMessage"),
+      cta:     document.getElementById("ctaBanner"),
+      ctaTitle: document.getElementById("ctaTitle"),
+    };
+
+    function showError(title, message) {
+      els.loading.style.display = "none";
+      els.header.style.display = "none";
+      els.grid.style.display = "none";
+      els.empty.style.display = "none";
+      els.cta.style.display = "block";
+      els.error.style.display = "block";
+      if (title) els.errorTitle.textContent = title;
+      if (message) els.errorMessage.textContent = message;
+      // Default CTA title for error view
+      els.ctaTitle.textContent = "start your own glow";
+    }
+
+    function escapeHtml(str) {
+      if (str == null) return "";
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function formatPrice(price) {
+      if (price == null || price === "" || isNaN(Number(price))) return "";
+      const num = Number(price);
+      if (num < 1) return ""; // Hide clearly invalid stored prices
+      return "$" + num.toFixed(0);
+    }
+
+    function pluralize(n, singular, plural) {
+      return n === 1 ? `${n} ${singular}` : `${n} ${plural}`;
+    }
+
+    function buildCard(item, isCollection) {
+      const name = escapeHtml((item.name || "").toLowerCase());
+      const price = formatPrice(item.price);
+      const qty = Number(item.qty) || 0;
+      const hasImg = !!item.image_url;
+      const showQtyBadge = isCollection && qty > 1;
+      return `
+        <div class="card">
+          <div class="card-photo">
+            ${hasImg
+              ? `<img src="${escapeHtml(item.image_url)}" alt="${name}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                 <div class="fallback" style="display:none;">no photo</div>`
+              : `<div class="fallback">no photo</div>`
+            }
+            ${showQtyBadge ? `<div class="qty-badge">×${qty}</div>` : ""}
+          </div>
+          <div class="card-body">
+            <div class="card-name">${name}</div>
+            ${price ? `<div class="card-price">${price}</div>` : ""}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderData(data) {
+      const displayName = (data.user && data.user.display_name) || "a collector";
+      const items = Array.isArray(data.items) ? data.items : [];
+      const isCollection = validType === "collection";
+      const typeLabel = isCollection ? "collection" : "wishlist";
+
+      // Hide loading, show content
+      els.loading.style.display = "none";
+      els.header.style.display = "block";
+      els.cta.style.display = "block";
+
+      // Header
+      els.eyebrow.textContent = isCollection ? "a shared collection" : "a shared wishlist";
+      const safeName = escapeHtml(displayName.toLowerCase());
+      els.title.innerHTML = `${safeName}'s <span class="accent">${typeLabel}</span>`;
+
+      // Meta count
+      const totalPieces = isCollection
+        ? items.reduce((sum, it) => sum + (Number(it.qty) || 1), 0)
+        : items.length;
+      els.meta.textContent = isCollection
+        ? `${pluralize(totalPieces, "piece", "pieces")} · ${pluralize(items.length, "unique glow", "unique glows")}`
+        : `${pluralize(items.length, "wished-for glow", "wished-for glows")}`;
+
+      // Grid or empty
+      if (items.length === 0) {
+        els.empty.style.display = "block";
+        els.empty.querySelector("h2").textContent = isCollection ? "no pieces yet" : "no wishes yet";
+        els.empty.querySelector("p").textContent = isCollection
+          ? "this collection is still waiting for its first glow."
+          : "nothing wished for yet. check back soon.";
+      } else {
+        els.grid.style.display = "grid";
+        els.grid.innerHTML = items.map(it => buildCard(it, isCollection)).join("");
+      }
+
+      // Personalize CTA
+      els.ctaTitle.textContent = isCollection
+        ? "start your own collection"
+        : "start your own wishlist";
+
+      // Update page title and OG
+      document.title = `${displayName.toLowerCase()}'s ${typeLabel} — glowy`;
+    }
+
+    async function loadShare() {
+      if (!token) {
+        showError("no share link", "this page needs a share link to display a collection.");
+        return;
+      }
+
+      try {
+        const resp = await fetch(`${API_BASE}/api/share/${encodeURIComponent(token)}/${validType}`, {
+          headers: { "Accept": "application/json" }
+        });
+
+        if (resp.status === 404) {
+          showError("this link isn't available", "the share link may have been removed or the collector changed it.");
+          return;
+        }
+        if (resp.status === 403) {
+          showError(
+            validType === "wishlist" ? "wishlist not shared" : "collection not shared",
+            "this collector's sharing is currently turned off."
+          );
+          return;
+        }
+        if (!resp.ok) {
+          throw new Error(`HTTP ${resp.status}`);
+        }
+
+        const data = await resp.json();
+        renderData(data);
+      } catch (err) {
+        console.error("Share load error:", err);
+        showError(
+          "something went wrong",
+          "we couldn't load this collection right now. try again in a moment."
+        );
+      }
+    }
+
+    loadShare();
+  })();
+</script>
+</body>
+</html>

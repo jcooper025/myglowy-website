@@ -1,3 +1,10 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "share" }],
+      "destination": "/share.html"
+    }
+  ]
 }
