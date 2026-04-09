@@ -147,8 +147,27 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       display: flex;
       flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
     }
     .card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .card:hover .card-name { color: var(--peach); }
+    .card-name { transition: color 0.2s ease; }
+    .card-shop-hint {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--peach);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 6px;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .card:hover .card-shop-hint { opacity: 1; }
+    @media (hover: none) {
+      .card-shop-hint { opacity: 1; }
+    }
     .card-photo {
       position: relative;
       width: 100%;
@@ -524,14 +543,26 @@
       return n === 1 ? `${n} ${singular}` : `${n} ${plural}`;
     }
 
+    function buildGbUrl(item) {
+      // Match the app's pattern: handle → /products/{handle}, else fall back to search
+      if (item.handle) {
+        return `https://www.glassybaby.com/products/${encodeURIComponent(item.handle)}`;
+      }
+      return `https://www.glassybaby.com/search?q=${encodeURIComponent(item.name || "")}`;
+    }
+
     function buildCard(item, isCollection) {
       const name = escapeHtml((item.name || "").toLowerCase());
       const price = formatPrice(item.price);
       const qty = Number(item.qty) || 0;
       const hasImg = !!item.image_url;
       const showQtyBadge = isCollection && qty > 1;
+      const href = escapeHtml(buildGbUrl(item));
+      const ariaLabel = escapeHtml(
+        `shop ${(item.name || "this piece").toLowerCase()} on glassybaby.com`
+      );
       return `
-        <div class="card">
+        <a class="card" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${ariaLabel}">
           <div class="card-photo">
             ${hasImg
               ? `<img src="${escapeHtml(item.image_url)}" alt="${name}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
@@ -543,8 +574,9 @@
           <div class="card-body">
             <div class="card-name">${name}</div>
             ${price ? `<div class="card-price">${price}</div>` : ""}
+            <div class="card-shop-hint">shop on glassybaby →</div>
           </div>
-        </div>
+        </a>
       `;
     }
 
